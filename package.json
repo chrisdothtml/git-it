@@ -1,6 +1,6 @@
 {
   "private": true,
-  "main": "lib/index.js",
+  "main": "node/index.js",
   "engines": {
     "node": ">=10",
     "pnpm": ">=2"
@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "electron": "^2.0.2",
-    "isomorphic-git": "^0.18.1"
+    "isomorphic-git": "^0.18.1",
+    "octicons": "^7.3.0",
+    "pfs": "^2.1.2"
   }
 }

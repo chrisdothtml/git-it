@@ -1,0 +1,64 @@
+@import url('../../common/reset.css');
+
+body {
+  color: #6c7075;
+}
+
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.splash-page .toolbar {
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  min-height: 110px;
+}
+
+.splash-page .repos {
+  overflow: auto;
+}
+
+.splash-page .repos .repo {
+  display: block;
+}
+
+.splash-page .repos .repo:not(:last-child) {
+  border-bottom: 1px solid #dcdee0;
+}
+
+.splash-page .repos .repo .clickbox {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  transition: background-color .2s;
+  width: 100%;
+}
+
+.splash-page .repos .repo .clickbox:hover,
+.splash-page .repos .repo .clickbox:active {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.splash-page .repos .repo .repo-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.splash-page .repos .repo .repo-branch {
+  align-items: center;
+  display: flex;
+  color: #b7babe;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.splash-page .repos .repo .repo-branch .branch-label {
+  font-weight: 300;
+  margin-left: 8px;
+}

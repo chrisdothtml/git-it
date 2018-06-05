@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('../../node_modules/octicons/build/build.css');
+
+* {
+	backface-visibility: hidden;
+	box-sizing: inherit;
+	color: inherit;
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html, body {
+  background: transparent;
+  height: 100%;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5 {
+	display: block;
+	font-weight: 400;
+}
+
+li, span, p, a, h1, h2, h3, h4, h5 {
+	line-height: 1;
+}
+
+p {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+	border: 0;
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+button {
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+}

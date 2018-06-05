@@ -1,6 +1,8 @@
 devDependencies:
   electron: 2.0.2
   isomorphic-git: 0.18.1
+  octicons: 7.3.0
+  pfs: 2.1.2
 packages:
   /@types/node/8.10.18:
     dev: true
@@ -916,6 +918,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-KKaq50KN0sOpLz2V8hM13SBOAzY=
+  /octicons/7.3.0:
+    dependencies:
+      object-assign: 4.1.1
+    dev: true
+    resolution:
+      integrity: sha512-UVjlkmUL15Ef/7Rd72Io634Bdl61QgSMasAZpvXPoR2XNFj1RelAyhl4QJuR1hBGlPWFDR7KFj2jEzsFax2IUg==
   /once/1.4.0:
     dependencies:
       wrappy: 1.0.2
@@ -1008,6 +1016,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+  /pfs/2.1.2:
+    dev: true
+    engines:
+      node: '>=0.12.18'
+    resolution:
+      integrity: sha512-oq8wOfWnqDCBn9rCHh0ER00solKe9wHxQJnUabjRGTcwSyOSUH6KcEQ7ge2ItP7JRjEOCuKM5ta9+LUNR3Wbsw==
   /pify/2.3.0:
     dev: true
     engines:
@@ -1504,3 +1518,5 @@ shrinkwrapVersion: 3
 specifiers:
   electron: ^2.0.2
   isomorphic-git: ^0.18.1
+  octicons: ^7.3.0
+  pfs: ^2.1.2

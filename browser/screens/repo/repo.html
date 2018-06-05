@@ -13,8 +13,17 @@
   <script>
     const { ipcRenderer } = require('electron')
 
-    ipcRenderer.on('open-repo', (event, arg) => {
-      document.getElementById('result').innerText = `Showing repo: ${arg}`
+    ipcRenderer.on('open-repo', (event, data) => {
+      document.getElementById('result').innerHTML = `
+        <h1>${data.name}</h1>
+        <ul>
+          ${data.commits.map(commit => {
+            const { author, message } = commit
+
+            return `<li>${author.name} <${author.email}> - ${message}</li>`
+          }).join('\n')}
+        </ul>
+      `
     })
 
     document.getElementById('open-repo').addEventListener('click', event => {
