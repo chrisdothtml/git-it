@@ -16,20 +16,45 @@ body {
 }
 
 .splash-page .toolbar {
-  --vert-pad: 20px;
+  --vert-pad: 15px;
   -webkit-app-region: drag;
   background-color: #2980b9;
   color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
-  padding: var(--vert-pad) 15px;
+  padding: var(--vert-pad) 20px;
+  position: relative;
 }
 
 body.platform-darwin .splash-page .toolbar {
   padding-top: calc(var(--vert-pad) + var(--darwin-top-bar-height));
 }
 
+.splash-page .toolbar .ghost-bg {
+  background: url('../../../icons/128x128.png') center center no-repeat;
+  height: 100%;
+  left: 0;
+  opacity: .05;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.splash-page .toolbar .content {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
 .splash-page .toolbar button {
   -webkit-app-region: no-drag;
+  font-size: 25px;
+  transition: opacity var(--anim-speed);
+}
+
+.splash-page .toolbar button:hover {
+  opacity: .8;
 }
 
 .splash-page .repos {
@@ -68,6 +93,10 @@ body.platform-darwin .splash-page .toolbar {
   color: #b7babe;
   font-size: 14px;
   margin-top: 8px;
+}
+
+.splash-page .repos .repo .repo-branch .octicon {
+  font-size: 16px;
 }
 
 .splash-page .repos .repo .repo-branch .branch-label {
