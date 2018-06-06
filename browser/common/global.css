@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-@import url('../../node_modules/octicons/build/build.css');
+
+:root {
+	--anim-speed: .2s;
+	--darwin-top-bar-height: 22px;
+}
 
 * {
 	backface-visibility: hidden;
@@ -24,8 +28,10 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	/* font-family: 'Open Sans', sans-serif; */
+	font: caption;
 	font-size: 16px;
+	position: relative;
 }
 
 h1, h2, h3, h4, h5 {
@@ -61,4 +67,10 @@ button {
 	background-color: transparent;
 	border: 0;
 	cursor: pointer;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
 }

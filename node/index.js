@@ -35,12 +35,14 @@ async function getRepoList (reposDir) {
 app.on('ready', () => {
   const win = new BrowserWindow({
     acceptFirstMouse: true,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
     fullscreen: false,
     height: 625,
     maximizable: false,
     resizable: false,
     width: 400,
+    titleBarStyle: 'hidden',
+    title: 'GitIt',
   })
 
   win.loadFile('browser/screens/splash/index.html')
