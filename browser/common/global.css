@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
 :root {
-	--anim-speed: .2s;
-	--darwin-top-bar-height: 22px;
+  --anim-speed: .2s;
+  --darwin-top-bar-height: 22px;
 }
 
 * {
-	backface-visibility: hidden;
-	box-sizing: inherit;
-	color: inherit;
-	font-size: inherit;
-	margin: 0;
-	padding: 0;
+  backface-visibility: hidden;
+  box-sizing: inherit;
+  color: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 *:focus {
@@ -24,31 +24,31 @@ html, body {
 }
 
 html {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	/* font-family: 'Open Sans', sans-serif; */
-	font: caption;
-	font-size: 16px;
-	position: relative;
+  /* font-family: 'Open Sans', sans-serif; */
+  font: caption;
+  font-size: 16px;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5 {
-	display: block;
-	font-weight: 400;
+  display: block;
+  font-weight: 400;
 }
 
 li, span, p, a, h1, h2, h3, h4, h5 {
-	line-height: 1;
+  line-height: 1;
 }
 
 p {
-	display: block;
+  display: block;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 
 }
 
@@ -57,22 +57,22 @@ a:hover {
 }
 
 img {
-	border: 0;
-	display: block;
-	height: auto;
-	max-width: 100%;
+  border: 0;
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
 button {
-	background-color: transparent;
-	border: 0;
-	cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .octicon {
-	fill: currentColor;
-	height: 1em;
-	width: 1em;
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
   display: inline-block;
   vertical-align: middle;
 }
