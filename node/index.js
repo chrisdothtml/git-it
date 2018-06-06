@@ -43,6 +43,7 @@ app.on('ready', () => {
     width: 400,
     titleBarStyle: 'hidden',
     title: 'GitIt',
+    icon: path.join(__dirname, '../icons/icon.icns'),
   })
 
   win.loadFile('browser/screens/splash/index.html')
