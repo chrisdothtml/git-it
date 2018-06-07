@@ -23,6 +23,8 @@
     "isomorphic-git": "^0.18.1",
     "octicons": "^7.3.0",
     "pfs": "^2.1.2",
+    "postcss-loader": "^2.1.5",
+    "postcss-nesting": "^5.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-hot-loader": "^4.3.0",

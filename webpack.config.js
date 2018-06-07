@@ -1,6 +1,7 @@
 const fs = require('pfs')
 const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
+const postCSSNesting = require('postcss-nesting')
 
 async function getEntries () {
   const screensPath = path.resolve(__dirname, 'browser/screens')
@@ -43,15 +44,16 @@ module.exports = async function () {
           use: [
             'babel-loader',
           ]
-        },
-        {
+        }, {
           test: /\.css$/,
           use: [
-            'style-loader',
-            'css-loader',
-          ]
-        },
-        {
+            { loader: 'style-loader', options: { sourceMap: true } },
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            { loader: 'postcss-loader', options: {
+              plugins: [ postCSSNesting() ],
+            }},
+          ],
+        }, {
           test: /\.(png)$/,
           use: 'file-loader'
         }
