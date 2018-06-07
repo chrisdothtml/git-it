@@ -6,9 +6,9 @@
   },
   "scripts": {
     "start": "concurrently -k 'npm run start:renderer' 'npm run start:main'",
-    "start:main": "NODE_ENV=development electron .",
-    "start:renderer": "webpack-dev-server --hot",
-    "build-renderer": "webpack-cli"
+    "start:main": "PORT=1337 electron .",
+    "start:renderer": "PORT=1337 webpack-dev-server --hot",
+    "build-renderer": "NODE_ENV=production webpack-cli"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",

@@ -66,6 +66,9 @@ module.exports = async function () {
       ]
     },
     devtool: 'inline-source-map',
+    devServer: {
+      port: process.env.PORT || 8080
+    },
     plugins: htmlPlugins.concat([
       //
     ]),

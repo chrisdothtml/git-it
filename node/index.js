@@ -46,10 +46,10 @@ app.on('ready', () => {
     icon: path.join(__dirname, '../icons/icon.icns'),
   })
 
-  if (process.env.NODE_ENV === 'development') {
-    win.loadURL('http://localhost:8080/splash.html')
-  } else {
+  if (process.env.NODE_ENV === 'production') {
     win.loadFile('dist/splash.html')
+  } else {
+    win.loadURL(`http://localhost:${process.env.PORT || 8080}/splash.html`)
   }
 })
 
