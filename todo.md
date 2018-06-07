@@ -3,6 +3,5 @@
 - splash screen
   - watch files in repo location(s)
   - make message for no repos
-  - get actual current branch
   - click opens window with repo
 - repo screen
