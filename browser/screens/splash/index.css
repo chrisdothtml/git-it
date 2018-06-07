@@ -1,4 +1,4 @@
-@import url('../../common/global.css');
+@import '../../common/global.css';
 
 body {
   color: #424448;
@@ -26,6 +26,7 @@ body {
 }
 
 body.platform-darwin .splash-page .toolbar {
+  /* to account for hidden titleBar in macOS */
   padding-top: calc(var(--vert-pad) + var(--darwin-top-bar-height));
 }
 

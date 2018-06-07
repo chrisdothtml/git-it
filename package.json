@@ -2,16 +2,33 @@
   "private": true,
   "main": "node/index.js",
   "engines": {
-    "node": ">=10",
-    "pnpm": ">=2"
+    "node": ">=10"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "concurrently -k 'npm run start:renderer' 'npm run start:main'",
+    "start:main": "NODE_ENV=development electron .",
+    "start:renderer": "webpack-dev-server --hot",
+    "build-renderer": "webpack-cli"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-react": "^7.0.0-beta.49",
+    "@babel/register": "^7.0.0-beta.49",
+    "babel-loader": "^8.0.0-beta",
+    "concurrently": "^3.5.1",
+    "css-loader": "^0.28.11",
     "electron": "^2.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "isomorphic-git": "^0.18.1",
     "octicons": "^7.3.0",
-    "pfs": "^2.1.2"
+    "pfs": "^2.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.3.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
   }
 }

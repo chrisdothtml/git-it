@@ -46,11 +46,15 @@ app.on('ready', () => {
     icon: path.join(__dirname, '../icons/icon.icns'),
   })
 
-  win.loadFile('browser/screens/splash/index.html')
+  if (process.env.NODE_ENV === 'development') {
+    win.loadURL('http://localhost:8080/splash.html')
+  } else {
+    win.loadFile('dist/splash.html')
+  }
 })
 
 ipcMain.on('fetch-repos', (event) => {
-  // TODO: set in preferences
+  // TODO: set in preferences - https://github.com/nathanbuchar/electron-settings
   const reposPath = '/Users/chris/projects'
 
   getRepoList(reposPath)
@@ -64,17 +68,6 @@ ipcMain.on('fetch-repos', (event) => {
       })
 
       event.sender.send('receive-repos', repos)
-    })
-    .catch(e => console.error(e))
-})
-
-ipcMain.on('click-open-repo', (event) => {
-  const repoPaths = dialog.showOpenDialog({ properties: ['openDirectory'/* , 'multiSelections' */] })
-  const repoPath = repoPaths[0]
-
-  getRepoInfo(repoPath)
-    .then(repoInfo => {
-      event.sender.send('open-repo', repoInfo)
     })
     .catch(e => console.error(e))
 })
