@@ -61,9 +61,9 @@ module.exports = async function () {
           ],
         }, {
           test: /\.(png)$/,
-          use: 'file-loader'
-        }
-      ]
+          use: 'file-loader',
+        },
+      ],
     },
     devtool: 'inline-source-map',
     devServer: {
