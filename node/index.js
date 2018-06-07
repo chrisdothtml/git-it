@@ -16,7 +16,7 @@ app.on('ready', () => {
     icon: path.join(__dirname, '../icons/icon.icns'),
     maximizable: false,
     resizable: false,
-    title: 'GitIt',
+    title: 'Git It',
     titleBarStyle: 'hidden',
     width: windowState.width,
     x: windowState.x,
