@@ -46,8 +46,8 @@ export default class Splash extends React.Component {
         <div className="toolbar">
           <div className="ghost-bg"></div>
           <div className="content">
-            <button><Octicon name="plus" /></button>
-            <button><Octicon name="gear" /></button>
+            <button title="Clone new repo"><Octicon name="plus" /></button>
+            <button title="Settings"><Octicon name="gear" /></button>
           </div>
         </div>
         <ul className="repos">
