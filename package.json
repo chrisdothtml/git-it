@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "concurrently -k 'npm run start:renderer' 'npm run start:main'",
-    "start:main": "PORT=1337 electron .",
+    "start:main": "PORT=1337 nodemon -x 'electron .'",
     "start:renderer": "PORT=1337 webpack-dev-server --hot",
     "build-renderer": "NODE_ENV=production webpack-cli"
   },
@@ -21,6 +21,7 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "isomorphic-git": "^0.18.1",
+    "nodemon": "^1.17.5",
     "octicons": "^7.3.0",
     "pfs": "^2.1.2",
     "postcss-loader": "^2.1.5",
