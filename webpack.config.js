@@ -3,25 +3,28 @@ const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 const postCSSNesting = require('postcss-nesting')
 
+const SCREENS_PATH = path.resolve(__dirname, 'browser/screens')
+
 async function getEntries () {
-  const screensPath = path.resolve(__dirname, 'browser/screens')
-  const screens = await fs.readdir(screensPath)
+  const screens = await fs.readdir(SCREENS_PATH)
 
-  return screens.reduce((result, screenName) => {
-    const entryPath = path.join(screensPath, screenName, 'index.js')
-
-    return Object.assign(result, { [screenName]: entryPath })
-  }, {})
+  return screens
+    // only include directories
+    .filter(filename => !path.extname(filename))
+    .reduce((result, screenName) => {
+      const entryPath = path.join(SCREENS_PATH, screenName, 'index.js')
+      return Object.assign(result, { [screenName]: entryPath })
+    }, {})
 }
 
 function getHtmlPlugins (entry) {
-  return Object.keys(entry).map(entryName => {
-    const templatePath = path.join(path.dirname(entry[entryName]), 'index.html')
+  const template = path.join(SCREENS_PATH, 'webpack-template.html')
 
+  return Object.keys(entry).map(entryName => {
     return new HtmlPlugin({
       chunks: [entryName],
       filename: `${entryName}.html`,
-      template: templatePath,
+      template,
     })
   })
 }
