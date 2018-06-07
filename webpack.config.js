@@ -44,9 +44,12 @@ module.exports = async function () {
       rules: [
         {
           test: /\.jsx?$/,
-          use: [
-            'babel-loader',
-          ]
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          options: {
+            plugins: [ 'react-hot-loader/babel' ],
+            presets: [ '@babel/preset-react' ],
+          },
         }, {
           test: /\.css$/,
           use: [
