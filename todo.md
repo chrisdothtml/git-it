@@ -1,6 +1,5 @@
-- clean shit up
 - add preferences
-  - set repo location
+  - set repos location
 - splash screen
   - watch files in repo location(s)
   - make message for no repos
