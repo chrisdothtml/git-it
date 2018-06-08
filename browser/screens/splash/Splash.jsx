@@ -6,7 +6,7 @@ import './Splash.css'
 function Repo (repo, i) {
   return (
     <li key={ i } className="repo">
-      <button className="clickbox">
+      <button className="clickbox" onClick={ () => ipcRenderer.send('open-repo', repo.fullpath) }>
         <span className="repo-name">{ repo.name }</span>
         <div className="repo-branch">
           <Octicon name="git-branch" />
@@ -46,8 +46,12 @@ export default class Splash extends React.Component {
         <div className="toolbar">
           <div className="ghost-bg"></div>
           <div className="content">
-            <button title="Clone new repo"><Octicon name="plus" /></button>
-            <button title="Settings"><Octicon name="gear" /></button>
+            <button title="Clone new repo" onClick={ () => ipcRenderer.send('open-clone') }>
+              <Octicon name="plus" />
+            </button>
+            <button title="Settings" onClick={ () => ipcRenderer.send('open-settings') }>
+              <Octicon name="gear" />
+            </button>
           </div>
         </div>
         <ul className="repos">

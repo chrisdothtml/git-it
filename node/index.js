@@ -42,3 +42,15 @@ ipcMain.on('fetch-repos', (event) => {
     })
     .catch(e => console.error(e))
 })
+
+ipcMain.on('open-clone', (event, repoPath) => {
+  console.log('opening clone')
+})
+
+ipcMain.on('open-repo', (event, repoPath) => {
+  console.log(`opening ${repoPath}`)
+})
+
+ipcMain.on('open-settings', (event, repoPath) => {
+  console.log('opening settings')
+})
