@@ -1,3 +1,4 @@
+- add linting
 - add preferences
   - set repos location
 - splash screen
@@ -5,3 +6,4 @@
   - make message for no repos
   - click opens window with repo
 - repo screen
+- handle main screen closing when other screens are open
