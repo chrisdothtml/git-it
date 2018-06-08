@@ -10,6 +10,13 @@
     "start:renderer": "PORT=1337 webpack-dev-server --hot",
     "build-renderer": "NODE_ENV=production webpack-cli"
   },
+  "dependencies": {
+    "isomorphic-git": "^0.18.1",
+    "octicons": "^7.3.0",
+    "pfs": "^2.1.2",
+    "react-dom": "^16.4.0",
+    "react": "^16.4.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
     "@babel/preset-react": "^7.0.0-beta.49",
@@ -20,14 +27,9 @@
     "electron-window-state": "^4.1.1",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
-    "isomorphic-git": "^0.18.1",
     "nodemon": "^1.17.5",
-    "octicons": "^7.3.0",
-    "pfs": "^2.1.2",
     "postcss-loader": "^2.1.5",
     "postcss-nesting": "^5.0.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
     "react-hot-loader": "^4.3.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.11.1",
