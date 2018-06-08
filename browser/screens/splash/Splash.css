@@ -1,9 +1,5 @@
 @import '../../common/global.css';
 
-body {
-  color: #424448;
-}
-
 .splash-page {
   -webkit-user-select: none;
   display: flex;
@@ -18,7 +14,7 @@ body {
 .toolbar {
   --vert-pad: 15px;
   -webkit-app-region: drag;
-  background-color: #2980b9;
+  background-color: var(--theme-color);
   color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
   padding: var(--vert-pad) 20px;

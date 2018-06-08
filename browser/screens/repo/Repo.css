@@ -1,0 +1,42 @@
+@import '../../common/global.css';
+
+#root, .repo-page {
+  height: 100%;
+}
+
+.repo-page {
+  display: flex;
+
+  & .content {
+    flex-grow: 1;
+  }
+}
+
+.navbar {
+  background-color: var(--theme-color);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  & .nav-item {
+    font-size: 28px;
+    padding: 15px;
+    transition: background-color var(--anim-speed);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(254, 254, 254, .1);
+    }
+
+    &.isSelected {
+      background-color: rgba(0, 0, 0, .2);
+    }
+
+    &:not(.isSelected):hover {
+      background-color: rgba(0, 0, 0, .1);
+    }
+
+    & .octicon {
+      display: block;
+    }
+  }
+}

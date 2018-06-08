@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'); */
 
 :root {
   --anim-speed: .2s;
   --darwin-top-bar-height: 22px;
+  --theme-color: #2980b9;
 }
 
 * {
@@ -28,6 +29,7 @@ html {
 }
 
 body {
+  color: #424448;
   /* font-family: 'Open Sans', sans-serif; */
   font: caption;
   font-size: 16px;

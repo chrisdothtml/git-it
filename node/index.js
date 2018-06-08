@@ -47,6 +47,11 @@ ipcMain.on('fetch-repos', (event) => {
     .catch(e => console.error(e))
 })
 
+ipcMain.on('fetch-repo', (event, repoPath) => {
+  // TODO: get working dir, commit tree, stashes in parallel
+  console.log('fetching repo', repoPath)
+})
+
 ipcMain.on('open-clone', (event, repoPath) => {
   console.log('opening clone')
 })
@@ -68,7 +73,7 @@ ipcMain.on('open-repo', (event, repoPath) => {
     y: windowState.y,
   })
 
-  loadScreen(window, 'repo', { name: repoName })
+  loadScreen(window, 'repo', { name: repoName, path: repoPath })
   windowState.manage(window)
 })
 
