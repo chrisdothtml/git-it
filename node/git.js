@@ -26,24 +26,32 @@ exports.getRepoInfo = async function (repoPath) {
 }
 
 exports.getReposFromDir = async function (reposDir) {
-  const dirList = await fs.readdir(reposDir)
-  const filtered = await Promise.all(
-    dirList.map(async (repoName) => {
-      const isGitRepo = await pathExists(path.join(reposDir, repoName, '.git'))
+  let result = []
 
-      return isGitRepo ? repoName : false
-    })
-  )
+  try {
+    const dirList = await fs.readdir(reposDir)
+    const filtered = await Promise.all(
+      dirList.map(async (repoName) => {
+        const isGitRepo = await pathExists(path.join(reposDir, repoName, '.git'))
 
-  return filtered
-    .filter(Boolean)
-    .sort(sortAlpha)
-    .map(name => {
-      return {
-        // TODO: get actual current branch
-        branch: 'master',
-        fullpath: path.join(reposDir, name),
-        name
-      }
-    })
+        return isGitRepo ? repoName : false
+      })
+    )
+
+    return filtered
+      .filter(Boolean)
+      .sort(sortAlpha)
+      .map(name => {
+        return {
+          // TODO: get actual current branch
+          branch: 'master',
+          fullpath: path.join(reposDir, name),
+          name
+        }
+      })
+  } catch (error) {
+    console.log(error)
+  }
+
+  return result
 }

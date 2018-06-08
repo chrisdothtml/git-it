@@ -3,9 +3,11 @@ import React from 'react'
 import { ipcRenderer } from 'electron'
 import './Splash.css'
 
-function Repo (repo, i) {
+function Repo (props) {
+  const { repo } = props
+
   return (
-    <li key={ i } className="repo">
+    <li className="repo">
       <button className="clickbox" onClick={ () => ipcRenderer.send('open-repo', repo.fullpath) }>
         <span className="repo-name">{ repo.name }</span>
         <div className="repo-branch">
@@ -17,12 +19,33 @@ function Repo (repo, i) {
   )
 }
 
+function RepoList (props) {
+  const { isLoading, repos } = props
+  let result
+
+  if (isLoading) {
+    result = 'Loading...'
+  } else if (repos.length) {
+    result = (
+      <ul className="repos">
+        { repos.map((repo, i) => (
+          <Repo repo={ repo } key={ i } />
+        )) }
+      </ul>
+    )
+  } else {
+    result = 'No repos :('
+  }
+
+  return result
+}
+
 export default class Splash extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      loading: true,
+      isLoading: true,
       repos: []
     }
   }
@@ -31,16 +54,13 @@ export default class Splash extends React.Component {
     ipcRenderer.send('fetch-repos')
     ipcRenderer.on('receive-repos', (event, repos) => {
       this.setState({
-        loading: false,
+        isLoading: false,
         repos
       })
     })
   }
 
   render () {
-    const hasRepos = !this.state.loading && this.state.repos.length
-    const repoList = hasRepos ? this.state.repos.map(Repo) : ''
-
     return (
       <div className="splash-page">
         <div className="toolbar">
@@ -54,9 +74,7 @@ export default class Splash extends React.Component {
             </button>
           </div>
         </div>
-        <ul className="repos">
-          { repoList }
-        </ul>
+        <RepoList { ...this.state } />
       </div>
     )
   }
