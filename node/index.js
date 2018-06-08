@@ -52,7 +52,24 @@ ipcMain.on('open-clone', (event, repoPath) => {
 })
 
 ipcMain.on('open-repo', (event, repoPath) => {
-  console.log(`opening ${repoPath}`)
+  const pathParts = repoPath.split(path.sep)
+  const repoName = pathParts[pathParts.length - 1]
+  const windowState = windowStateKeeper({
+    defaultHeight: 500,
+    defaultWidth: 800,
+  })
+  const window = new BrowserWindow({
+    acceptFirstMouse: true,
+    backgroundColor: '#fff',
+    height: windowState.height,
+    title: `Git It - ${repoName}`,
+    width: windowState.width,
+    x: windowState.x,
+    y: windowState.y,
+  })
+
+  loadScreen(window, 'repo', { name: repoName })
+  windowState.manage(window)
 })
 
 ipcMain.on('open-settings', (event, repoPath) => {
