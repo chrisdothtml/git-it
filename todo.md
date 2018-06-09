@@ -4,6 +4,5 @@
 - splash screen
   - watch files in repo location(s)
   - make message for no repos
-  - click opens window with repo
 - repo screen
 - handle main screen closing when other screens are open
