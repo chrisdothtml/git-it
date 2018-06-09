@@ -6,6 +6,8 @@ import './Repo.css'
 
 export default class Repo extends React.Component {
   constructor (props) {
+    const { repoName, repoPath } = props
+
     super(props)
 
     this.views = [
@@ -25,10 +27,7 @@ export default class Repo extends React.Component {
     ]
 
     this.state = {
-      meta: {
-        repoName: props.name,
-        repoPath: props.path
-      },
+      meta: { repoName, repoPath },
       view: this.views[0].key,
       workingDir: {},
       commitTree: {},
