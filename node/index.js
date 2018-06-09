@@ -26,7 +26,16 @@ ipcMain.on('open-clone', (event, repoPath) => {
 })
 
 ipcMain.on('open-repo', (event, repoPath) => {
-  windowManager.create('repo', repoPath)
+  const window = windowManager.get('repo', repoPath)
+
+  if (window) {
+    if (!window.isVisible() || !window.isFocused()) {
+      window.show()
+      window.focus()
+    }
+  } else {
+    windowManager.create('repo', repoPath)
+  }
 })
 
 ipcMain.on('open-settings', (event, repoPath) => {
