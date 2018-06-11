@@ -79,9 +79,13 @@ exports.create = function (type, id) {
 }
 
 exports.get = function (type, id) {
-  if (type === 'splash') {
-    return WINDOWS[name]
-  } else if (type === 'repo') {
-    return WINDOWS[`${type}-${id}`]
+  let result
+
+  if (id) {
+    result = WINDOWS[`${type}-${id}`]
+  } else {
+    result = WINDOWS[type]
   }
+
+  return result
 }
