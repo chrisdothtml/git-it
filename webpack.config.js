@@ -3,7 +3,7 @@ const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 const postCSSNesting = require('postcss-nesting')
 
-const SCREENS_PATH = path.resolve(__dirname, 'browser/screens')
+const SCREENS_PATH = path.resolve(__dirname, 'renderer/screens')
 
 async function getEntries () {
   const screens = await fs.readdir(SCREENS_PATH)

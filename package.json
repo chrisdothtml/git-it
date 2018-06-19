@@ -1,6 +1,6 @@
 {
   "private": true,
-  "main": "node/index.js",
+  "main": "main/index.js",
   "engines": {
     "node": ">=10"
   },
