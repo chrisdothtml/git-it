@@ -12,24 +12,9 @@
 }
 
 .toolbar {
-  --vert-pad: 15px;
-  -webkit-app-region: drag;
-  background-color: var(--theme-color);
-  color: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
-  padding: var(--vert-pad) 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+  padding: 15px 20px;
   position: relative;
-
-  & .ghost-bg {
-    background: url('../../../icons/128x128.png') center center no-repeat;
-    height: 100%;
-    left: 0;
-    opacity: .05;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-  }
 
   & .content {
     display: flex;
@@ -39,7 +24,6 @@
   }
 
   & button {
-    -webkit-app-region: no-drag;
     font-size: 25px;
     transition: opacity var(--anim-speed);
 
@@ -49,11 +33,6 @@
   }
 }
 
-body.platform-darwin .toolbar {
-  /* to account for hidden titleBar in macOS */
-  padding-top: calc(var(--vert-pad) + var(--darwin-top-bar-height));
-}
-
 .repos {
   overflow: auto;
 
@@ -61,7 +40,7 @@ body.platform-darwin .toolbar {
     display: block;
 
     &:not(:last-child) {
-      border-bottom: 1px solid #dcdee0;
+      border-bottom: 1px solid rgba(0, 0, 0, .2);
     }
 
     & .clickbox {
@@ -85,7 +64,7 @@ body.platform-darwin .toolbar {
     & .repo-branch {
       align-items: center;
       display: flex;
-      color: #b7babe;
+      color: rgba(0, 0, 0, .4);
       font-size: 14px;
       margin-top: 8px;
 

@@ -2,7 +2,6 @@
 
 :root {
   --anim-speed: .2s;
-  --darwin-top-bar-height: 22px;
   --theme-color: #2980b9;
 }
 
@@ -29,8 +28,7 @@ html {
 }
 
 body {
-  color: #424448;
-  /* font-family: 'Open Sans', sans-serif; */
+  color: #6b6b6b;
   font: caption;
   font-size: 16px;
   position: relative;

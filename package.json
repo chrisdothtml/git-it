@@ -15,6 +15,7 @@
     "electron": "^2.0.2",
     "electron-window-state": "^4.1.1",
     "isomorphic-git": "^0.19.3",
+    "menubar": "^5.2.3",
     "octicons": "^7.3.0",
     "pfs": "^2.1.2",
     "react": "^16.4.1",

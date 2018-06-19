@@ -1,10 +1,20 @@
+const menubarCreator = require('menubar')
 const path = require('path')
 const windowManager = require('./window-manager.js')
 const { app, ipcMain } = require('electron')
 const { getReposFromDir } = require('./git.js')
 
+const menubar = menubarCreator({
+  alwaysOnTop: true, // DEV ONLY
+  show: true, // DEV ONLY
+  icon: path.resolve(__dirname, '../icons/menubar.png'),
+  index: `http://localhost:${process.env.PORT || 8080}/splash.html`,
+  vibrancy: 'light',
+  resizable: false,
+  transparent: true,
+})
+
 app.on('ready', () => {
-  windowManager.create('splash')
 })
 
 ipcMain.on('fetch-repos', (event) => {
