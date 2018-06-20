@@ -46,7 +46,7 @@ function createRepoWindow (repoPath) {
     acceptFirstMouse: true,
     backgroundColor: '#fff',
     height: state.height,
-    title: `Git It - ${repoName}`,
+    title: `Push It - ${repoName}`,
     titleBarStyle: 'hiddenInset',
     width: state.width,
     x: state.x,
