@@ -26,7 +26,7 @@ function createMenubar () {
   return menubarCreator({
     alwaysOnTop: !IS_PRODUCTION, // dev only
     icon: path.resolve(ROOT_PATH, 'icons/menubar.png'),
-    index: getScreenUrl('splash'),
+    index: getScreenUrl('repo-list'),
     preloadWindow: true,
     resizable: false,
     transparent: true,

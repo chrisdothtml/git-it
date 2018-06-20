@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Splash from './Splash.jsx'
+import RepoList from './RepoList.jsx'
 import { hot } from 'react-hot-loader'
 
 ReactDOM.render(
-  React.createElement(hot(module)(Splash)),
+  React.createElement(hot(module)(RepoList)),
   document.getElementById('root')
 )

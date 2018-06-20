@@ -1,6 +1,6 @@
 @import '../../common/global.css';
 
-.splash-page {
+.repo-list {
   -webkit-user-select: none;
   display: flex;
   flex-direction: column;

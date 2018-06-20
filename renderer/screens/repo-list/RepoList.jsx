@@ -1,7 +1,7 @@
 import Octicon from '../../common/Octicon.jsx'
 import React from 'react'
 import { ipcRenderer } from 'electron'
-import './Splash.css'
+import './RepoList.css'
 
 function Repo (props) {
   const { repo } = props
@@ -19,7 +19,7 @@ function Repo (props) {
   )
 }
 
-function RepoList (props) {
+function List (props) {
   const { isLoading, repos } = props
   let result
 
@@ -40,7 +40,7 @@ function RepoList (props) {
   return result
 }
 
-export default class Splash extends React.Component {
+export default class RepoList extends React.Component {
   constructor (props) {
     super(props)
 
@@ -62,7 +62,7 @@ export default class Splash extends React.Component {
 
   render () {
     return (
-      <div className="splash-page">
+      <div className="repo-list">
         <div className="toolbar">
           <div className="ghost-bg"></div>
           <div className="content">
@@ -74,7 +74,7 @@ export default class Splash extends React.Component {
             </button>
           </div>
         </div>
-        <RepoList { ...this.state } />
+        <List { ...this.state } />
       </div>
     )
   }
