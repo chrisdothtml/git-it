@@ -25,7 +25,7 @@ function getScreenUrl (filename, data = {}) {
 function createMenubar () {
   return menubarCreator({
     alwaysOnTop: !IS_PRODUCTION, // dev only
-    icon: path.resolve(ROOT_PATH, 'icons/menubar.png'),
+    icon: path.resolve(ROOT_PATH, 'icons/icon.png'),
     index: getScreenUrl('repo-list'),
     preloadWindow: true,
     resizable: false,
@@ -46,7 +46,6 @@ function createRepoWindow (repoPath) {
     acceptFirstMouse: true,
     backgroundColor: '#fff',
     height: state.height,
-    icon: path.resolve(ROOT_PATH, 'icons/icon.icns'),
     title: `Git It - ${repoName}`,
     width: state.width,
     x: state.x,
