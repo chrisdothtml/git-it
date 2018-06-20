@@ -1,3 +1,4 @@
+const keyBindings = require('./key-bindings.js')
 const path = require('path')
 const windowManager = require('./window-manager.js')
 const { app, ipcMain } = require('electron')
@@ -5,6 +6,7 @@ const { getReposFromDir } = require('./git.js')
 
 app.on('ready', () => {
   windowManager.create('menubar')
+  keyBindings.registerGlobal()
 })
 
 ipcMain.on('fetch-repos', (event) => {
