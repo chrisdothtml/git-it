@@ -2,7 +2,7 @@
 
 :root {
   --anim-speed: .2s;
-  --theme-color: #2980b9;
+  --theme-color: #2196F3;
 }
 
 * {
@@ -74,4 +74,12 @@ button {
   width: 1em;
   display: inline-block;
   vertical-align: middle;
+}
+
+.material-icon {
+  font-size: 1em !important;
+
+  &.icon-watch {
+    font-size: .8em !important;
+  }
 }

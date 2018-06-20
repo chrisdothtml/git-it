@@ -5,34 +5,57 @@
 }
 
 .repo-page {
-  display: flex;
-
-  & .content {
-    flex-grow: 1;
-  }
-}
-
-.navbar {
-  background-color: var(--theme-color);
-  color: #fff;
+  --border-color: #eaf0f0;
   display: flex;
   flex-direction: column;
 
-  & .nav-item {
-    font-size: 28px;
-    padding: 15px;
-    transition: background-color var(--anim-speed);
+  & .page-main {
+    background-color: #fff;
+    display: flex;
+    height: 100%;
 
-    &:not(:last-child) {
-      border-bottom: 1px solid rgba(254, 254, 254, .1);
+    & .content {
+      border-left: 1px solid var(--border-color);
+      flex-grow: 1;
     }
+  }
+}
+
+body:not(.platform-darwin) .page-titlebar {
+  display: none;
+}
+
+body.platform-darwin .page-titlebar {
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  background-color: #f6f4f5;
+  border-bottom: 1px solid var(--border-color);
+  height: 38px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 78px;
+
+  & .nav-item {
+    box-sizing: content-box;
+    color: #707981;
+    display: flex;
+    font-size: 40px;
+    height: 1em;
+    justify-content: center;
+    padding: 15px 0;
+    transition-property: background-color, color;
+    transition-duration: var(--anim-speed);
 
     &.isSelected {
-      background-color: rgba(0, 0, 0, .2);
+      background-color: rgba(0, 0, 0, .025);
     }
 
-    &:not(.isSelected):hover {
-      background-color: rgba(0, 0, 0, .1);
+    &.isSelected,
+    &:hover {
+      color: var(--theme-color);
     }
 
     & .octicon {

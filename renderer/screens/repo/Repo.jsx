@@ -1,5 +1,5 @@
 import c from 'classcat'
-import Octicon from '../../common/Octicon.jsx'
+import MaterialIcon from '../../common/MaterialIcon.jsx'
 import React from 'react'
 import { ipcRenderer } from 'electron'
 import './Repo.css'
@@ -18,7 +18,7 @@ export default class Repo extends React.Component {
       }, {
         key: 'commit-tree',
         name: 'Commit tree',
-        icon: 'circuit-board',
+        icon: 'timeline',
       }, {
         key: 'stashes',
         name: 'Stashes',
@@ -70,18 +70,21 @@ export default class Repo extends React.Component {
           title={ view.name }
           onClick={ (e) => this.clickNavButton(e, view.key) }
         >
-          <Octicon name={ view.icon } />
+          <MaterialIcon name={ view.icon } />
         </button>
       )
     })
 
     return (
       <div className="repo-page">
-        <div className="navbar">
-          { navButtons }
-        </div>
-        <div className="content">
-          <span>Viewing: { this.state.meta.repoName }</span>
+        <div className="page-titlebar"></div>
+        <div className="page-main">
+          <div className="navbar">
+            { navButtons }
+          </div>
+          <div className="content">
+            <span>Viewing: { this.state.meta.repoName }</span>
+          </div>
         </div>
       </div>
     )

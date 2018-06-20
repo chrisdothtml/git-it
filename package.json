@@ -11,10 +11,13 @@
     "build-renderer": "NODE_ENV=production webpack-cli"
   },
   "dependencies": {
+    "@material-ui/core": "^1.2.2",
+    "@material-ui/icons": "^1.1.0",
     "classcat": "^3.1.2",
     "electron": "^2.0.2",
     "electron-window-state": "^4.1.1",
     "isomorphic-git": "^0.19.3",
+    "lodash-es": "^4.17.10",
     "menubar": "^5.2.3",
     "octicons": "^7.3.0",
     "pfs": "^2.1.2",

@@ -47,6 +47,7 @@ function createRepoWindow (repoPath) {
     backgroundColor: '#fff',
     height: state.height,
     title: `Git It - ${repoName}`,
+    titleBarStyle: 'hiddenInset',
     width: state.width,
     x: state.x,
     y: state.y,
