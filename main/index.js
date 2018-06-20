@@ -30,7 +30,7 @@ ipcMain.on('open-clone', (event, repoPath) => {
 ipcMain.on('open-repo', (event, repoPath) => {
   const window = windowManager.get('repo', repoPath)
 
-  if (window) {
+  if (window && !window.isDestroyed()) {
     if (!window.isVisible() || !window.isFocused()) {
       window.show()
       window.focus()
