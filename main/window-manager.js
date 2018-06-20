@@ -1,60 +1,75 @@
+const menubarCreator = require('menubar')
 const path = require('path')
 const windowState = require('electron-window-state')
 const { BrowserWindow } = require('electron')
 const { buildQuery } = require('./utils.js')
 
+const ROOT_PATH = path.resolve(__dirname, '../')
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 const WINDOWS = {}
-const BASE_PROPS = {
-  acceptFirstMouse: true,
-  backgroundColor: '#fff',
-  icon: path.join(__dirname, '../icons/icon.icns'),
-  title: 'Git It',
-}
-const CONFIGS = {
-  splash: {
-    defaults: {
-      height: 625,
-      width: 400,
-    },
-    props: {
-      fullscreen: false,
-      maximizable: false,
-      resizable: false,
-      titleBarStyle: 'hidden',
-    },
-  },
-  repo: {
-    defaults: {
-      height: 750,
-      width: 1150,
-    },
-    props: {},
-  },
-}
 
-function loadScreen (window, filename, data = {}) {
+function getScreenUrl (filename, data = {}) {
   const query = buildQuery(data)
+  const filepath = `${filename}.html?${query}`
+  let dirpath
 
-  if (process.env.NODE_ENV === 'production') {
-    window.loadFile(`dist/${filename}.html?${query}`)
+  if (IS_PRODUCTION) {
+    dirpath = `file://${path.join(ROOT_PATH, 'dist')}`
   } else {
-    window.loadURL(`http://localhost:${process.env.PORT || 8080}/${filename}.html?${query}`)
+    dirpath = `http://localhost:${process.env.PORT || 8080}`
   }
+
+  return `${dirpath}/${filepath}`
 }
 
-exports.create = function (type, id) {
-  const config = CONFIGS[type]
-  const state = windowState({
-    defaultHeight: config.defaults.height,
-    defaultWidth: config.defaults.width,
-    file: `${type}.json`,
+function createMenubar () {
+  return menubarCreator({
+    alwaysOnTop: !IS_PRODUCTION, // dev only
+    icon: path.resolve(ROOT_PATH, 'icons/menubar.png'),
+    index: getScreenUrl('splash'),
+    preloadWindow: true,
+    resizable: false,
+    transparent: true,
+    vibrancy: 'medium-light',
   })
-  const window = new BrowserWindow(Object.assign({}, BASE_PROPS, config.props, {
+}
+
+function createRepoWindow (repoPath) {
+  const pathParts = repoPath.split(path.sep)
+  const repoName = pathParts[pathParts.length - 1]
+  const state = windowState({
+    defaultHeight: 750,
+    defaultWidth: 1150,
+    file: 'repo.json',
+  })
+  const window = new BrowserWindow({
+    acceptFirstMouse: true,
+    backgroundColor: '#fff',
     height: state.height,
+    icon: path.resolve(ROOT_PATH, 'icons/icon.icns'),
+    title: `Git It - ${repoName}`,
     width: state.width,
     x: state.x,
     y: state.y,
-  }))
+  })
+
+  window.loadURL(getScreenUrl('repo', { repoName, repoPath }))
+  state.manage(window)
+  // TODO: add event handlers for window (destroy, etc)
+  return window
+}
+
+exports.create = function (type, id) {
+  let window
+
+  switch (type) {
+    case 'menubar':
+      window = createMenubar()
+      break
+    case 'repo':
+      window = createRepoWindow(id)
+      break
+  }
 
   if (id) {
     WINDOWS[`${type}-${id}`] = window
@@ -62,19 +77,6 @@ exports.create = function (type, id) {
     WINDOWS[type] = window
   }
 
-  if (type === 'repo') {
-    const repoPath = id
-    const pathParts = repoPath.split(path.sep)
-    const repoName = pathParts[pathParts.length - 1]
-
-    window.setTitle(`${window.getTitle()} - ${repoName}`)
-    loadScreen(window, type, { repoName, repoPath })
-  } else {
-    loadScreen(window, type)
-  }
-
-  state.manage(window)
-  // TODO: add event handlers for window (destroy, etc)
   return window
 }
 
